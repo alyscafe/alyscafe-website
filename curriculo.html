@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currículo — Alysia Germani | Dados e BI</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    @page {
+      size: A4;
+      margin: 15mm 18mm;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      color: #111;
+      background: #fff;
+      font-size: 10.5pt;
+      line-height: 1.45;
+      padding: 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    header {
+      border-bottom: 2px solid #222;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 19pt;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+    .title {
+      font-size: 11pt;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 6px;
+    }
+    .contact {
+      font-size: 9.5pt;
+      color: #444;
+      line-height: 1.4;
+    }
+    .contact a {
+      color: inherit;
+      text-decoration: none;
+    }
+    section {
+      margin-bottom: 14px;
+    }
+    h2 {
+      font-size: 11.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid #777;
+      padding-bottom: 2px;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    p {
+      margin-bottom: 6px;
+      text-align: justify;
+    }
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      margin-bottom: 2px;
+    }
+    .role-sub {
+      font-size: 9.5pt;
+      color: #333;
+      margin-bottom: 6px;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 18px;
+      margin-bottom: 6px;
+    }
+    li {
+      margin-bottom: 4px;
+      text-align: justify;
+    }
+    .skills-group {
+      margin-bottom: 4px;
+      font-size: 10pt;
+    }
+    .skills-group strong {
+      color: #222;
+    }
+    @media print {
+      body {
+        padding: 0;
+        max-width: 100%;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+    .action-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed #ccc;
+    }
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: #c67139;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: #eee;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="action-bar no-print">
+    <a href="index.html" class="btn-back">← Voltar ao alys.cafe</a>
+    <button onclick="window.print()" class="btn-print">🖨️ Imprimir / Salvar como PDF</button>
+  </div>
+
+  <header>
+    <h1>Alysia Germani</h1>
+    <div class="title">Estudante de Ciência da Computação | Dados e BI | SQL · Power BI · Python</div>
+    <div class="contact">
+      Viamão/RS · Região Metropolitana de Porto Alegre · Disponível para presencial, híbrido e remoto<br>
+      E-mail: oi@alys.cafe · LinkedIn: linkedin.com/in/alys-muni · GitHub: github.com/Lunalith · Portfólio: alys.cafe
+    </div>
+  </header>
+
+  <section>
+    <h2>Resumo</h2>
+    <p>
+      Estudante de Ciência da Computação (3º semestre, Unisinos) atuando como bolsista de Iniciação Científica CNPq no desenvolvimento de pipelines de IA para análise de dados acústicos. Experiência prática com Python, tratamento de dados brutos e documentação técnica, e estudo contínuo de SQL e Power BI com foco em inteligência de negócios. Busco estágio em dados, BI ou desenvolvimento para aplicar e ampliar essa base técnica na resolução de problemas reais.
+    </p>
+  </section>
+
+  <section>
+    <h2>Experiência</h2>
+    <div class="role-header">
+      <span>Desenvolvedora de IA — Iniciação Científica (bolsista CNPq)</span>
+      <span>12/2025 – atual</span>
+    </div>
+    <div class="role-sub">Projeto Cidadania Viva · Unisinos — Porto Alegre/RS</div>
+    <ul>
+      <li>Desenvolvo pipelines de processamento e classificação de áudio em Python, aplicando transfer learning e análise de espectrogramas para identificar espécies bioindicadoras em gravações de campo.</li>
+      <li>Estruturo e trato dados brutos de ciência cidadã (gravações contínuas de 24h coletadas em escolas públicas da Região Metropolitana de Porto Alegre) para análise analítica reproduzível.</li>
+      <li>Opero ferramentas de classificação acústica (Chirpity) e de gestão colaborativa de dados (Arbimon), documentando fluxo de processamento e requisitos em Markdown para garantir rastreabilidade.</li>
+      <li>Colaboro com pesquisadores de mais de 6 áreas (Direito, Arquitetura, Psicologia, entre outras), traduzindo requisitos de negócio não técnicos em etapas estruturadas de processamento.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Formação</h2>
+    <div class="role-header">
+      <span>Bacharelado em Ciência da Computação</span>
+      <span>03/2025 – em curso (3º semestre)</span>
+    </div>
+    <div class="role-sub">Universidade do Vale do Rio dos Sinos (Unisinos) — Porto Alegre/RS</div>
+  </section>
+
+  <section>
+    <h2>Competências</h2>
+    <div class="skills-group">
+      <strong>Linguagens e consultas:</strong> Python (intermediário), SQL (básico, em estudo contínuo), C (básico)
+    </div>
+    <div class="skills-group">
+      <strong>Dados e BI:</strong> Power BI e DAX (em estudo), pandas, análise exploratória (EDA), modelagem dimensional
+    </div>
+    <div class="skills-group">
+      <strong>Ferramentas:</strong> Git, GitHub, Linux, Markdown, Jupyter Notebooks
+    </div>
+    <div class="skills-group">
+      <strong>IA aplicada:</strong> Transfer learning, APIs de LLM, Claude Code, automação de fluxos analíticos
+    </div>
+  </section>
+
+  <section>
+    <h2>Idiomas</h2>
+    <p>Português: nativo · Inglês: avançado</p>
+  </section>
+
+  <section>
+    <h2>Complementar</h2>
+    <p>
+      Code@Night — Unisinos e ADP Brazil Labs (12/2025)<br>
+      HTB Academy — Estudos em fundamentos de segurança da informação (em andamento)
+    </p>
+  </section>
+</body>
+</html>
