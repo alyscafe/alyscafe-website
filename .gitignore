@@ -1,0 +1,17 @@
+# Contexto e notas de planejamento pessoal (fora do Git por design)
+Contexto/
+Contexto/**
+
+# Sistema Operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs e arquivos temporários
+*.log
+.temp/
+.cache/
+
+# Ambientes locais / IDEs
+.vscode/
+.idea/
