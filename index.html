@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt" data-lang="pt" data-theme="dia">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alysia Germani — Dados e BI | Ciência da Computação</title>
+  <meta name="description" content="Alysia Germani, estudante de Ciência da Computação na Unisinos e bolsista de Iniciação Científica CNPq em inteligência artificial. Transformo dado bruto em resposta: Python, SQL e Power BI. Buscando estágio em dados e BI na Grande Porto Alegre.">
+  <meta name="author" content="Alysia Germani">
+  
+  <!-- Open Graph / LinkedIn / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alys.cafe">
+  <meta property="og:title" content="Alysia Germani — Dados e BI | Ciência da Computação">
+  <meta property="og:description" content="Bolsista de IC em IA na Unisinos. Transformo dado bruto em resposta — de gravações de campo a séries do Banco Central.">
+  <meta property="og:image" content="https://alys.cafe/favicon.svg">
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Alysia Germani — Dados e BI | Ciência da Computação">
+  <meta name="twitter:description" content="Bolsista de IC em IA na Unisinos. Transformo dado bruto em resposta — de gravações de campo a séries do Banco Central.">
+  <meta name="twitter:image" content="https://alys.cafe/favicon.svg">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- JSON-LD Structured Data for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alysia Germani",
+    "url": "https://alys.cafe",
+    "jobTitle": "Estudante de Ciência da Computação e Bolsista de Iniciação Científica",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Universidade do Vale do Rio dos Sinos (Unisinos)"
+    },
+    "sameAs": [
+      "https://github.com/Lunalith",
+      "https://linkedin.com/in/alys-muni"
+    ],
+    "knowsAbout": ["Python", "SQL", "Power BI", "Data Analysis", "Artificial Intelligence"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Ambient Organic Background Blobs -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+    <div class="blob-3"></div>
+  </div>
+
+  <!-- Top Navigation Header -->
+  <header class="top-nav" role="banner">
+    <!-- Brand Pill with Interactive Steaming Cup -->
+    <div class="nav-pill">
+      <button id="cupBtn" class="cup-btn" type="button" title="Mais um café / One more coffee" aria-label="Pedir mais um café">
+        <div class="steam-group" aria-hidden="true">
+          <span class="steam-line steam-1"></span>
+          <span class="steam-line steam-2"></span>
+          <span class="steam-line steam-3"></span>
+        </div>
+        <div class="cup-saucer-shape"></div>
+      </button>
+      <div>
+        <div class="nav-brand-title">Alysia Germani</div>
+        <div class="nav-brand-sub">
+          <span data-l="pt">dados &amp; bi · alys.cafe</span>
+          <span data-l="en">data &amp; bi · alys.cafe</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls: Language, Theme, Clock -->
+    <div class="nav-controls">
+      <!-- Language Switcher -->
+      <div class="seg-lang" role="group" aria-label="Seletor de idioma">
+        <button id="btnLangPt" class="seg-btn active" type="button">PT</button>
+        <button id="btnLangEn" class="seg-btn" type="button">EN</button>
+      </div>
+
+      <!-- Theme Switcher -->
+      <button id="themeToggleBtn" class="icon-btn" type="button" title="Alternar tema (Dia / Café)" aria-label="Alternar tema">
+        <!-- Sun Icon (Dia) -->
+        <svg id="sunIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"></path>
+        </svg>
+        <!-- Moon Icon (Café) -->
+        <svg id="moonIcon" style="display: none;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+        </svg>
+      </button>
+
+      <!-- Live Clock -->
+      <div id="clockText" class="clock-pill" aria-label="Horário atual">12:00</div>
+    </div>
+  </header>
+
+  <!-- Workspace / Desk -->
+  <main id="desk" class="desk" role="main">
+
+    <!-- 1. Window: HOME (Hero) -->
+    <section id="win-home" class="window" role="region" aria-labelledby="title-home">
+      <div class="window-header">
+        <div class="window-dots" aria-hidden="true">
+          <span class="dot-1"></span>
+          <span class="dot-2"></span>
+          <span class="dot-3"></span>
+        </div>
+        <span id="title-home" class="window-title">home</span>
+        <button class="window-close-btn" type="button" title="Fechar" aria-label="Fechar janela home">×</button>
+      </div>
+      <div class="window-body">
+        <h1>
+          <span data-l="pt">Transformo <span style="color: var(--color-accent)">dado bruto</span> em resposta.</span>
+          <span data-l="en">I turn <span style="color: var(--color-accent)">raw data</span> into an answer.</span>
+        </h1>
+        <p>
+          <span data-l="pt">Estudante de Ciência da Computação na Unisinos, com um ano de Iniciação Científica CNPq em inteligência artificial — de gravações de campo a séries do Banco Central.</span>
+          <span data-l="en">Computer Science student at Unisinos, with a year as a CNPq research fellow in artificial intelligence — from field recordings to Brazilian Central Bank time series.</span>
+        </p>
+        <p class="text-muted" style="font-size: 14px; margin-bottom: 20px;">
+          <span data-l="pt">Buscando estágio em dados e BI na Grande Porto Alegre.</span>
+          <span data-l="en">Looking for a data / BI internship in Greater Porto Alegre.</span>
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px;">
+          <a class="btn btn-primary" href="https://github.com/Lunalith" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span data-l="pt">Ver GitHub</span>
+            <span data-l="en">View GitHub</span>
+          </a>
+          <a class="btn btn-secondary" href="curriculo.pdf" target="_blank" download="curriculo-alysia-germani.pdf">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            <span data-l="pt">Baixar currículo (PDF)</span>
+            <span data-l="en">Download Résumé (PDF)</span>
+          </a>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px;">
+          <span class="tag tag-accent">Python</span>
+          <span class="tag tag-accent-2">SQL</span>
+          <span class="tag tag-accent-2">Power BI</span>
+          <span class="tag tag-neutral">
+            <span data-l="pt">IA aplicada</span>
+            <span data-l="en">applied AI</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Window: TRAJETÓRIA (Experience & Education) -->
+    <section id="win-trajetoria" class="window" role="region" aria-labelledby="title-trajetoria">
+      <div class="window-header">
+        <div class="window-dots" aria-hidden="true">
+          <span class="dot-1"></span>
+          <span class="dot-2"></span>
+          <span class="dot-3"></span>
+        </div>
+        <span id="title-trajetoria" class="window-title">
+          <span data-l="pt">trajetória</span>
+          <span data-l="en">experience</span>
+        </span>
+        <button class="window-close-btn" type="button" title="Fechar" aria-label="Fechar janela trajetória">×</button>
+      </div>
+      <div class="window-body">
+        <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; margin-bottom: 3px;">
+          <h4 style="margin: 0;">
+            <span data-l="pt">Desenvolvedora de IA</span>
+            <span data-l="en">AI Developer</span>
+          </h4>
+          <span class="tag tag-accent-2">
+            <span data-l="pt">bolsista CNPq</span>
+            <span data-l="en">CNPq fellow</span>
+          </span>
+        </div>
+        <div class="text-muted" style="font-size: 12.5px; margin-bottom: 14px;">
+          Projeto Cidadania Viva · Unisinos · 12/2025 – atual
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 11px; font-size: 13.5px;">
+          <div style="display: grid; grid-template-columns: 8px 1fr; gap: 11px; align-items: start;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); margin-top: 6px;" aria-hidden="true"></span>
+            <p style="margin: 0;">
+              <span data-l="pt">Desenvolvo pipelines de processamento e classificação de áudio em Python, aplicando transfer learning e análise de espectrogramas para identificar espécies bioindicadoras em gravações de campo.</span>
+              <span data-l="en">Built audio processing and classification pipelines in Python, applying transfer learning and spectrogram analysis to identify bioindicator species in field recordings.</span>
+            </p>
+          </div>
+          <div style="display: grid; grid-template-columns: 8px 1fr; gap: 11px; align-items: start;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent-2); margin-top: 6px;" aria-hidden="true"></span>
+            <p style="margin: 0;">
+              <span data-l="pt">Estruturei e trato dados brutos de ciência cidadã — gravações contínuas de 24h coletadas em escolas públicas da Região Metropolitana de Porto Alegre — para análise analítica reproduzível.</span>
+              <span data-l="en">Structured and cleaned raw citizen-science data — continuous 24h recordings collected in public schools around Porto Alegre — for reproducible analysis.</span>
+            </p>
+          </div>
+          <div style="display: grid; grid-template-columns: 8px 1fr; gap: 11px; align-items: start;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); margin-top: 6px;" aria-hidden="true"></span>
+            <p style="margin: 0;">
+              <span data-l="pt">Operei ferramentas de classificação acústica (Chirpity) e de gestão colaborativa de dados (Arbimon), documentando fluxo e requisitos em Markdown para garantir reprodutibilidade.</span>
+              <span data-l="en">Operated acoustic classification (Chirpity) and collaborative data management (Arbimon) tools, documenting the workflow and requirements in Markdown for reproducibility.</span>
+            </p>
+          </div>
+          <div style="display: grid; grid-template-columns: 8px 1fr; gap: 11px; align-items: start;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent-2); margin-top: 6px;" aria-hidden="true"></span>
+            <p style="margin: 0;">
+              <span data-l="pt">Colaboro com pesquisadores de mais de 6 áreas — Direito, Arquitetura, Psicologia, entre outras — traduzindo requisitos de negócio não técnicos em etapas estruturadas de processamento.</span>
+              <span data-l="en">Worked with researchers from over 6 fields — Law, Architecture, Psychology and others — translating non-technical requirements into processing steps.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div>
+          <h6 style="color: var(--color-accent); margin-bottom: 6px;">
+            <span data-l="pt">formação</span>
+            <span data-l="en">education</span>
+          </h6>
+          <div style="font-size: 14px; font-weight: 600;">Bacharelado em Ciência da Computação</div>
+          <div class="text-muted" style="font-size: 12.5px;">
+            Unisinos — Porto Alegre/RS · 03/2025 – 
+            <span data-l="pt">em curso (3º semestre)</span>
+            <span data-l="en">in progress (3rd semester)</span>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div>
+          <h6 style="color: var(--color-accent-2); margin-bottom: 6px;">
+            <span data-l="pt">complementar</span>
+            <span data-l="en">additional</span>
+          </h6>
+          <div style="font-size: 13px; display: flex; flex-direction: column; gap: 5px;">
+            <span>Code@Night — Unisinos &amp; ADP Brazil Labs (12/2025)</span>
+            <span class="text-muted">
+              <span data-l="pt">HTB Academy — fundamentos de segurança da informação (em andamento)</span>
+              <span data-l="en">HTB Academy — information security fundamentals (ongoing)</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Window: SOBRE (About) -->
+    <section id="win-sobre" class="window" role="region" aria-labelledby="title-sobre">
+      <div class="window-header header-alt">
+        <div class="window-dots" aria-hidden="true">
+          <span class="dot-1"></span>
+          <span class="dot-2"></span>
+          <span class="dot-3"></span>
+        </div>
+        <span id="title-sobre" class="window-title">
+          <span data-l="pt">sobre</span>
+          <span data-l="en">about</span>
+        </span>
+        <button class="window-close-btn" type="button" title="Fechar" aria-label="Fechar janela sobre">×</button>
+      </div>
+      <div class="window-body">
+        <p>
+          <span data-l="pt">Sou a Alysia — Alys para quem chega. O que me interessa em computação é a parte que responde perguntas: pegar um dado sujo, entender de onde ele vem, modelar direito e chegar num número que alguém de fora da área consiga ler.</span>
+          <span data-l="en">I'm Alysia — Alys to anyone who walks in. What draws me to computing is the part that answers questions: taking messy data, understanding where it came from, modelling it properly, and arriving at a number someone outside the field can actually read.</span>
+        </p>
+        <p>
+          <span data-l="pt">Na Iniciação Científica fiz isso com áudio de campo em Python, por um ano. Agora sigo com SQL e Power BI, mirando análise de dados com aplicação em finanças. Uso ferramentas de IA todos os dias para construir coisas de verdade, não para pular etapa.</span>
+          <span data-l="en">I did that with field audio in Python for a year, as a research fellow. Now I'm carrying on with SQL and Power BI, aiming at data analysis applied to finance. I use AI tools every day to build real things, not to skip steps.</span>
+        </p>
+        <p class="text-muted" style="font-size: 13px;">
+          <span data-l="pt">Fora disso: segurança da informação como interesse antigo (HTB Academy nas horas livres), café em quantidade discutível, e uma coelhinha que virou logo.</span>
+          <span data-l="en">Outside that: information security as a long-standing interest (HTB Academy in spare hours), a debatable amount of coffee, and a little rabbit that became a logo.</span>
+        </p>
+
+        <div class="divider"></div>
+
+        <div style="display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; font-size: 13px;">
+          <span class="text-muted"><span data-l="pt">base</span><span data-l="en">based in</span>:</span>
+          <span>Viamão/RS · <span data-l="pt">Região Metropolitana de Porto Alegre</span><span data-l="en">Greater Porto Alegre</span></span>
+          <span class="text-muted"><span data-l="pt">idiomas</span><span data-l="en">languages</span>:</span>
+          <span><span data-l="pt">Português nativo · Inglês avançado</span><span data-l="en">Portuguese native · English advanced</span></span>
+          <span class="text-muted"><span data-l="pt">estudando</span><span data-l="en">studying</span>:</span>
+          <span>SQL <span data-l="pt">para análise</span><span data-l="en">for analysis</span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Window: AGORA (Current Track & Next Project) -->
+    <section id="win-agora" class="window" role="region" aria-labelledby="title-agora">
+      <div class="window-header header-alt">
+        <div class="window-dots" aria-hidden="true">
+          <span class="dot-1"></span>
+          <span class="dot-2"></span>
+          <span class="dot-3"></span>
+        </div>
+        <span id="title-agora" class="window-title">
+          <span data-l="pt">no que estou</span>
+          <span data-l="en">what i'm on</span>
+        </span>
+        <button class="window-close-btn" type="button" title="Fechar" aria-label="Fechar janela no que estou">×</button>
+      </div>
+      <div class="window-body">
+        <p class="text-muted" style="font-size: 12.5px; margin-bottom: 16px;">
+          <span data-l="pt">Trilha em curso, na ordem. Projeto publicado entra aqui como seção própria quando existir — não antes.</span>
+          <span data-l="en">Current track, in order. A published project gets its own section here once it exists — not before.</span>
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <!-- Track 1 -->
+          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start;">
+            <span style="width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--color-accent); color: var(--color-bg); font-family: var(--font-heading); font-size: 12px;" aria-hidden="true">1</span>
+            <div>
+              <div style="font-family: var(--font-heading); font-size: 14.5px;">
+                SQL <span data-l="pt">para análise</span><span data-l="en">for analysis</span>
+              </div>
+              <div class="text-muted" style="font-size: 12.5px;">
+                <span data-l="pt">joins, CTEs e window functions — e saber explicar por que o número bateu. Em curso.</span>
+                <span data-l="en">joins, CTEs and window functions — and being able to explain why the number adds up. In progress.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Track 2 -->
+          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start;">
+            <span style="width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--color-accent) 22%, transparent); color: var(--color-text); font-family: var(--font-heading); font-size: 12px;" aria-hidden="true">2</span>
+            <div>
+              <div style="font-family: var(--font-heading); font-size: 14.5px;">
+                Power BI, Power Query <span data-l="pt">e</span><span data-l="en">&amp;</span> DAX
+              </div>
+              <div class="text-muted" style="font-size: 12.5px;">
+                <span data-l="pt">relatório do zero: conectar, tratar, modelar, medir, comunicar.</span>
+                <span data-l="en">a report from scratch: connect, clean, model, measure, communicate.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Track 3 -->
+          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start;">
+            <span style="width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--color-accent-2) 26%, transparent); color: var(--color-text); font-family: var(--font-heading); font-size: 12px;" aria-hidden="true">3</span>
+            <div>
+              <div style="font-family: var(--font-heading); font-size: 14.5px;">
+                <span data-l="pt">Modelagem dimensional</span>
+                <span data-l="en">Dimensional modelling</span>
+              </div>
+              <div class="text-muted" style="font-size: 12.5px;">
+                <span data-l="pt">star schema, granularidade, tabela calendário — defender por que o modelo é esse.</span>
+                <span data-l="en">star schema, granularity, calendar table — defending why the model is what it is.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Track 4 -->
+          <div style="display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start;">
+            <span style="width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--color-accent-2) 26%, transparent); color: var(--color-text); font-family: var(--font-heading); font-size: 12px;" aria-hidden="true">4</span>
+            <div>
+              <div style="font-family: var(--font-heading); font-size: 14.5px;">
+                Python <span data-l="pt">para dados</span><span data-l="en">for data</span>
+              </div>
+              <div class="text-muted" style="font-size: 12.5px;">
+                <span data-l="pt">pandas em cima da base que já uso na Iniciação Científica.</span>
+                <span data-l="en">pandas on top of the base I already use in the fellowship.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Spotlight Card -->
+        <div class="card-project">
+          <div class="card-kicker">
+            <span data-l="pt">próximo projeto</span>
+            <span data-l="en">next project</span>
+          </div>
+          <div style="font-family: var(--font-heading); font-size: 14.5px; margin-bottom: 4px;">
+            <span data-l="pt">Dashboard macroeconômico do Brasil</span>
+            <span data-l="en">Brazilian macroeconomic dashboard</span>
+          </div>
+          <p class="text-muted" style="font-size: 12.5px; margin: 0;">
+            <span data-l="pt">Séries do SGS/Banco Central em Power BI: quanto tempo leva, depois de a Selic subir, até o volume de crédito cair. Hipótese registrada antes de olhar o dado.</span>
+            <span data-l="en">Central Bank SGS series in Power BI: how long it takes, after the Selic rate rises, for credit volume to fall. Hypothesis written down before looking at the data.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Window: LINKS -->
+    <section id="win-links" class="window" role="region" aria-labelledby="title-links">
+      <div class="window-header header-alt">
+        <div class="window-dots" aria-hidden="true">
+          <span class="dot-1"></span>
+          <span class="dot-2"></span>
+          <span class="dot-3"></span>
+        </div>
+        <span id="title-links" class="window-title">links</span>
+        <button class="window-close-btn" type="button" title="Fechar" aria-label="Fechar janela links">×</button>
+      </div>
+      <div class="window-body-compact">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <a class="link-item" href="https://linkedin.com/in/alys-muni" target="_blank" rel="noopener noreferrer">
+            <span class="indicator-dot" style="background: var(--color-accent);" aria-hidden="true"></span>
+            LinkedIn
+            <span class="muted">/in/alys-muni</span>
+          </a>
+          <a class="link-item" href="https://github.com/Lunalith" target="_blank" rel="noopener noreferrer">
+            <span class="indicator-dot" style="background: var(--color-accent-2);" aria-hidden="true"></span>
+            GitHub
+            <span class="muted">/Lunalith</span>
+          </a>
+          <a class="link-item" href="mailto:oi@alys.cafe">
+            <span class="indicator-dot" style="background: var(--color-accent);" aria-hidden="true"></span>
+            E-mail
+            <span class="muted">oi@alys.cafe</span>
+          </a>
+          <a class="link-item" href="curriculo.pdf" target="_blank">
+            <span class="indicator-dot" style="background: var(--color-accent-2);" aria-hidden="true"></span>
+            <span data-l="pt">Currículo (PDF)</span>
+            <span data-l="en">Résumé (PDF)</span>
+            <span class="muted">alys.cafe/curriculo.pdf</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Window: ESTANTE (Shelf / Off-Duty) -->
+    <section id="win-estante" class="window" role="region" aria-labelledby="title-estante">
+      <div class="window-header">
+        <div class="window-dots" aria-hidden="true">
+          <span class="dot-1"></span>
+          <span class="dot-2"></span>
+          <span class="dot-3"></span>
+        </div>
+        <span id="title-estante" class="window-title">
+          <span data-l="pt">estante</span>
+          <span data-l="en">shelf</span>
+        </span>
+        <button class="window-close-btn" type="button" title="Fechar" aria-label="Fechar janela estante">×</button>
+      </div>
+      <div class="window-body">
+        <p class="text-muted" style="font-size: 12.5px; margin-bottom: 16px;">
+          <span data-l="pt">O que estou lendo, jogando e vendo — a parte não profissional do café.</span>
+          <span data-l="en">What I'm reading, playing and watching — the café's off-duty side.</span>
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 18px;">
+          <!-- Books -->
+          <div>
+            <h6 style="color: var(--color-accent); margin-bottom: 8px;">
+              <span data-l="pt">livros</span>
+              <span data-l="en">books</span>
+            </h6>
+            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+              <div>
+                The Data Warehouse Toolkit
+                <div class="text-muted" style="font-size: 11px;">Kimball · <span data-l="pt">cap. 1–3</span><span data-l="en">ch. 1–3</span></div>
+              </div>
+              <div>
+                <span data-l="pt">Sistemas Operacionais Modernos</span>
+                <span data-l="en">Modern Operating Systems</span>
+                <div class="text-muted" style="font-size: 11px;"><span data-l="pt">da cadeira</span><span data-l="en">coursework</span></div>
+              </div>
+              <div>
+                Torto Arado
+                <div class="text-muted" style="font-size: 11px;"><span data-l="pt">terminado</span><span data-l="en">finished</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Games -->
+          <div>
+            <h6 style="color: var(--color-accent-2); margin-bottom: 8px;">
+              <span data-l="pt">jogos</span>
+              <span data-l="en">games</span>
+            </h6>
+            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+              <div>
+                Stardew Valley
+                <div class="text-muted" style="font-size: 11px;"><span data-l="pt">fazenda ano 4</span><span data-l="en">farm year 4</span></div>
+              </div>
+              <div>
+                Hollow Knight
+                <div class="text-muted" style="font-size: 11px;"><span data-l="pt">sofrendo</span><span data-l="en">suffering</span></div>
+              </div>
+              <div>
+                Balatro
+                <div class="text-muted" style="font-size: 11px;"><span data-l="pt">só uma partida</span><span data-l="en">just one run</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Anime -->
+          <div>
+            <h6 style="color: var(--color-accent); margin-bottom: 8px;">anime</h6>
+            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px;">
+              <div>
+                Mushishi
+                <div class="text-muted" style="font-size: 11px;"><span data-l="pt">favorito eterno</span><span data-l="en">eternal favourite</span></div>
+              </div>
+              <div>
+                Frieren
+                <div class="text-muted" style="font-size: 11px;"><span data-l="pt">acompanhando</span><span data-l="en">keeping up</span></div>
+              </div>
+              <div>
+                Cowboy Bebop
+                <div class="text-muted" style="font-size: 11px;"><span data-l="pt">rever sempre</span><span data-l="en">always rewatching</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Window: FAQ -->
+    <section id="win-faq" class="window" role="region" aria-labelledby="title-faq">
+      <div class="window-header header-alt">
+        <div class="window-dots" aria-hidden="true">
+          <span class="dot-1"></span>
+          <span class="dot-2"></span>
+          <span class="dot-3"></span>
+        </div>
+        <span id="title-faq" class="window-title">faq</span>
+        <button class="window-close-btn" type="button" title="Fechar" aria-label="Fechar janela faq">×</button>
+      </div>
+      <div class="window-body" style="display: flex; flex-direction: column; gap: 15px;">
+        <div>
+          <div style="font-family: var(--font-heading); font-size: 14.5px; margin-bottom: 4px;">
+            <span data-l="pt">Que tipo de vaga você procura?</span>
+            <span data-l="en">What kind of role are you after?</span>
+          </div>
+          <p class="text-muted" style="font-size: 13px; margin: 0;">
+            <span data-l="pt">Estágio em dados, BI ou análise — presencial na Grande Porto Alegre, híbrido ou remoto. Também considero vagas de desenvolvimento com Python.</span>
+            <span data-l="en">An internship in data, BI or analytics — on-site in Greater Porto Alegre, hybrid or remote. I also consider Python development roles.</span>
+          </p>
+        </div>
+
+        <div>
+          <div style="font-family: var(--font-heading); font-size: 14.5px; margin-bottom: 4px;">
+            <span data-l="pt">Você já trabalhou com dados de verdade?</span>
+            <span data-l="en">Have you worked with real data?</span>
+          </div>
+          <p class="text-muted" style="font-size: 13px; margin: 0;">
+            <span data-l="pt">Sim: por um ano tratei gravações contínuas de campo em Python na Iniciação Científica — dado bruto, sujo e volumoso, com pipeline documentado.</span>
+            <span data-l="en">Yes: for a year I processed continuous field recordings in Python as a research fellow — raw, messy, high-volume data with a documented pipeline.</span>
+          </p>
+        </div>
+
+        <div>
+          <div style="font-family: var(--font-heading); font-size: 14.5px; margin-bottom: 4px;">
+            <span data-l="pt">E SQL e Power BI?</span>
+            <span data-l="en">What about SQL and Power BI?</span>
+          </div>
+          <p class="text-muted" style="font-size: 13px; margin: 0;">
+            <span data-l="pt">Em estudo, na trilha ao lado — prefiro dizer o nível real a inflar e travar na entrevista técnica.</span>
+            <span data-l="en">Both in progress, on the track next door — I'd rather state the honest level than inflate it and stall in the technical interview.</span>
+          </p>
+        </div>
+
+        <div>
+          <div style="font-family: var(--font-heading); font-size: 14.5px; margin-bottom: 4px;">
+            <span data-l="pt">Por que alys.cafe?</span>
+            <span data-l="en">Why alys.cafe?</span>
+          </div>
+          <p class="text-muted" style="font-size: 13px; margin: 0;">
+            <span data-l="pt">Porque quase todo trabalho aqui começou com um café. O site é feito e mantido por mim — o que também conta como projeto.</span>
+            <span data-l="en">Because nearly everything here started with a coffee. The site is built and maintained by me — which counts as a project too.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Window: CONTATO (Contact) -->
+    <section id="win-contato" class="window" role="region" aria-labelledby="title-contato">
+      <div class="window-header">
+        <div class="window-dots" aria-hidden="true">
+          <span class="dot-1"></span>
+          <span class="dot-2"></span>
+          <span class="dot-3"></span>
+        </div>
+        <span id="title-contato" class="window-title">
+          <span data-l="pt">contato</span>
+          <span data-l="en">contact</span>
+        </span>
+        <button class="window-close-btn" type="button" title="Fechar" aria-label="Fechar janela contato">×</button>
+      </div>
+      <div class="window-body">
+        <p style="font-size: 13.5px; margin-bottom: 16px;">
+          <span data-l="pt">Recrutando para dados, BI ou desenvolvimento? Deixe um recado — respondo no mesmo dia.</span>
+          <span data-l="en">Hiring for data, BI or development? Leave a note — I reply the same day.</span>
+        </p>
+
+        <form id="contactForm">
+          <div class="field">
+            <label for="contactEmail">
+              <span data-l="pt">seu e-mail</span>
+              <span data-l="en">your email</span>
+            </label>
+            <input id="contactEmail" class="input" type="email" placeholder="voce@empresa.com" required>
+          </div>
+
+          <div class="field">
+            <label for="contactMessage">
+              <span data-l="pt">recado</span>
+              <span data-l="en">note</span>
+            </label>
+            <textarea id="contactMessage" class="input" placeholder="Oi, Alysia..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            <span data-l="pt">Enviar recado</span>
+            <span data-l="en">Send note</span>
+          </button>
+        </form>
+
+        <p class="text-muted" style="font-size: 12px; margin: 14px 0 0; text-align: center;">
+          <span data-l="pt">ou direto: </span>
+          <span data-l="en">or straight to: </span>
+          <a href="mailto:oi@alys.cafe">oi@alys.cafe</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Floating Dock -->
+  <nav class="dock" role="navigation" aria-label="Navegação da mesa de trabalho">
+    <button class="dock-btn" data-window="home" type="button">
+      <span class="dock-dot" aria-hidden="true"></span>home
+    </button>
+    <button class="dock-btn" data-window="trajetoria" type="button">
+      <span class="dock-dot" aria-hidden="true"></span>
+      <span data-l="pt">trajetória</span>
+      <span data-l="en">experience</span>
+    </button>
+    <button class="dock-btn" data-window="sobre" type="button">
+      <span class="dock-dot" aria-hidden="true"></span>
+      <span data-l="pt">sobre</span>
+      <span data-l="en">about</span>
+    </button>
+    <button class="dock-btn" data-window="agora" type="button">
+      <span class="dock-dot" aria-hidden="true"></span>
+      <span data-l="pt">no que estou</span>
+      <span data-l="en">what i'm on</span>
+    </button>
+    <button class="dock-btn" data-window="links" type="button">
+      <span class="dock-dot" aria-hidden="true"></span>links
+    </button>
+    <button class="dock-btn" data-window="estante" type="button">
+      <span class="dock-dot" aria-hidden="true"></span>
+      <span data-l="pt">estante</span>
+      <span data-l="en">shelf</span>
+    </button>
+    <button class="dock-btn" data-window="faq" type="button">
+      <span class="dock-dot" aria-hidden="true"></span>faq
+    </button>
+    <button class="dock-btn" data-window="contato" type="button">
+      <span class="dock-dot" aria-hidden="true"></span>
+      <span data-l="pt">contato</span>
+      <span data-l="en">contact</span>
+    </button>
+
+    <div class="dock-divider" aria-hidden="true"></div>
+
+    <button id="tidyBtn" class="dock-tidy-btn" type="button" title="Organizar janelas em colunas">
+      <span data-l="pt">arrumar a mesa</span>
+      <span data-l="en">tidy up</span>
+    </button>
+  </nav>
+
+  <!-- Toast Notification -->
+  <div id="toastNotice" class="toast-notice" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
