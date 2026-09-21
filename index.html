@@ -532,13 +532,13 @@
           <span data-l="en">Hiring for tech roles (data, development or AI)? Leave a note — I reply the same day.</span>
         </p>
 
-        <form id="contactForm">
+        <form id="contactForm" action="https://formspree.io/f/SEU_CODIGO_AQUI" method="POST">
           <div class="field">
             <label for="contactEmail">
               <span data-l="pt">seu e-mail</span>
               <span data-l="en">your email</span>
             </label>
-            <input id="contactEmail" class="input" type="email" placeholder="voce@empresa.com" required>
+            <input id="contactEmail" name="email" class="input" type="email" placeholder="voce@empresa.com" required>
           </div>
 
           <div class="field">
@@ -546,7 +546,7 @@
               <span data-l="pt">recado</span>
               <span data-l="en">note</span>
             </label>
-            <textarea id="contactMessage" class="input" placeholder="Oi, Alysia..." required></textarea>
+            <textarea id="contactMessage" name="message" class="input" placeholder="Oi, Alysia..." required></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary btn-block">

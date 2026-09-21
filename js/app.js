@@ -342,15 +342,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Contact Form Submission Handler
+  // Contact Form Submission Handler (Formspree AJAX)
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const lang = document.documentElement.getAttribute('data-lang');
-      const message = lang === 'en' ? 'note left at the counter!' : 'recado no balcão!';
-      flashToast(message);
-      contactForm.reset();
+      
+      const btn = contactForm.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '...';
+      btn.disabled = true;
+
+      const formData = new FormData(contactForm);
+      const endpoint = contactForm.getAttribute('action');
+
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          const lang = document.documentElement.getAttribute('data-lang');
+          const message = lang === 'en' ? 'note left at the counter!' : 'recado no balcão!';
+          flashToast(message);
+          contactForm.reset();
+        } else {
+          // Se o endpoint for inválido ou der erro, avisa na tela
+          const lang = document.documentElement.getAttribute('data-lang');
+          flashToast(lang === 'en' ? 'Form error (check setup)' : 'Erro de configuração');
+        }
+      } catch (error) {
+        const lang = document.documentElement.getAttribute('data-lang');
+        flashToast(lang === 'en' ? 'Connection error' : 'Erro de conexão');
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
     });
   }
 
