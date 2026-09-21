@@ -1,7 +1,7 @@
 # alys.cafe ☕🐰
 
 > **Mesa digital e website pessoal de Alysia Germani**  
-> Estudante de Ciência da Computação (Unisinos) · Bolsista de Iniciação Científica CNPq em Inteligência Artificial  
+> Estudante de Ciência da Computação (Unisinos) · Ex-Bolsista de Iniciação Científica CNPq em Inteligência Artificial  
 > Foco: **Estágio em Dados e BI** na Grande Porto Alegre
 
 ---

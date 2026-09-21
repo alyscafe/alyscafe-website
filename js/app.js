@@ -363,5 +363,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Initial layout arrangement
-  tidyDesk();
+  setTimeout(() => tidyDesk(), 50);
+
+  // Recalculate once all resources (fonts, images) are fully loaded
+  window.addEventListener('load', () => tidyDesk());
 });
