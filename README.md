@@ -101,4 +101,4 @@ Este repositório utiliza rigorosamente o padrão **Conventional Commits**:
 - **Website:** [alys.cafe](https://alys.cafe)
 - **E-mail:** [oi@alys.cafe](mailto:oi@alys.cafe)
 - **LinkedIn:** [linkedin.com/in/alys-muni](https://linkedin.com/in/alys-muni)
-- **GitHub:** [github.com/Lunalith](https://github.com/Lunalith)
+- **GitHub:** [github.com/alyscafe](https://github.com/alyscafe)
