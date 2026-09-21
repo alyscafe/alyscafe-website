@@ -217,7 +217,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const cols = isMobile ? 1 : (isTablet ? 2 : 3);
     const gap = isMobile ? 14 : 24;
     const pad = isMobile ? 12 : 36;
-    const colW = Math.floor((W - pad * 2 - gap * (cols - 1)) / cols);
+    
+    // Calculate width ensuring we don't exceed max width per window
+    const maxWinW = 480;
+    let colW = Math.floor((W - pad * 2 - gap * (cols - 1)) / cols);
+    colW = isMobile ? colW : Math.min(colW, maxWinW);
+    
+    // Calculate total grid width to center it on the screen
+    const gridW = colW * cols + gap * (cols - 1);
+    const startX = Math.max(pad, Math.floor((W - gridW) / 2));
+    
     const tops = new Array(cols).fill(isMobile ? 88 : 108);
 
     WINDOW_CONFIGS.forEach(cfg => {
@@ -230,8 +239,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (tops[i] < tops[targetCol]) targetCol = i;
       }
 
-      win.w = isMobile ? colW : Math.min(colW, 480);
-      win.x = pad + targetCol * (colW + gap);
+      win.w = colW;
+      win.x = startX + targetCol * (colW + gap);
       win.y = tops[targetCol];
 
       win.el.style.width = `${win.w}px`;
