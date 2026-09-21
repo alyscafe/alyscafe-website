@@ -720,7 +720,7 @@ textarea.input {
   position: fixed;
   bottom: 80px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 10px) scale(0.98);
   z-index: 9500;
   padding: 9px 20px;
   border-radius: var(--radius-pill);
@@ -729,14 +729,16 @@ textarea.input {
   font-family: var(--font-heading);
   font-size: 13.5px;
   box-shadow: var(--shadow-md);
-  animation: rise 0.25s ease both;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .toast-notice.show {
   opacity: 1;
+  transform: translate(-50%, 0) scale(1);
 }
 
 /* ——— Responsive Layout ——— */
