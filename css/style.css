@@ -174,12 +174,6 @@ a:hover {
 }
 
 /* ——— Animations ——— */
-@keyframes steam {
-  0% { transform: translateY(2px) scaleX(0.9); opacity: 0; }
-  30% { opacity: 0.8; }
-  100% { transform: translateY(-14px) scaleX(1.6); opacity: 0; }
-}
-
 @keyframes drift {
   0%, 100% { transform: translate(0, 0); }
   50% { transform: translate(28px, -22px); }
@@ -259,45 +253,6 @@ a:hover {
 
 .cup-btn:active {
   transform: scale(0.95);
-}
-
-.steam-group {
-  position: absolute;
-  top: 2px;
-  left: 9px;
-  display: flex;
-  gap: 3px;
-}
-
-.steam-line {
-  width: 3.5px;
-  height: 12px;
-  border-radius: var(--radius-pill);
-  background: color-mix(in srgb, var(--color-text) 35%, transparent);
-}
-
-.steam-1 { animation: steam 3.2s ease-out infinite; }
-.steam-2 { animation: steam 3.2s ease-out 0.9s infinite; }
-.steam-3 { animation: steam 3.2s ease-out 1.8s infinite; }
-
-.cup-saucer-shape {
-  position: relative;
-  width: 22px;
-  height: 16px;
-  border-radius: 4px 4px 11px 11px;
-  background: var(--color-accent);
-}
-
-.cup-saucer-shape::after {
-  content: "";
-  position: absolute;
-  right: -7px;
-  top: 2px;
-  width: 9px;
-  height: 9px;
-  border: 2.5px solid var(--color-accent);
-  border-radius: 50%;
-  border-left-color: transparent;
 }
 
 /* Control Pills */
