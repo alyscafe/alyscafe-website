@@ -566,48 +566,59 @@
   </main>
 
   <!-- Bottom Floating Dock -->
-  <nav class="dock" role="navigation" aria-label="Navegação da mesa de trabalho">
-    <button class="dock-btn" data-window="home" type="button">
-      <span class="dock-dot" aria-hidden="true"></span>home
-    </button>
-    <button class="dock-btn" data-window="trajetoria" type="button">
-      <span class="dock-dot" aria-hidden="true"></span>
-      <span data-l="pt">trajetória</span>
-      <span data-l="en">experience</span>
-    </button>
-    <button class="dock-btn" data-window="sobre" type="button">
-      <span class="dock-dot" aria-hidden="true"></span>
-      <span data-l="pt">sobre</span>
-      <span data-l="en">about</span>
-    </button>
-    <button class="dock-btn" data-window="agora" type="button">
-      <span class="dock-dot" aria-hidden="true"></span>
-      <span data-l="pt">no que estou</span>
-      <span data-l="en">what i'm on</span>
-    </button>
-    <button class="dock-btn" data-window="links" type="button">
-      <span class="dock-dot" aria-hidden="true"></span>links
-    </button>
-    <button class="dock-btn" data-window="estante" type="button">
-      <span class="dock-dot" aria-hidden="true"></span>
-      <span data-l="pt">estante</span>
-      <span data-l="en">shelf</span>
-    </button>
-    <button class="dock-btn" data-window="faq" type="button">
-      <span class="dock-dot" aria-hidden="true"></span>faq
-    </button>
-    <button class="dock-btn" data-window="contato" type="button">
-      <span class="dock-dot" aria-hidden="true"></span>
-      <span data-l="pt">contato</span>
-      <span data-l="en">contact</span>
+  <nav id="dock" class="dock" role="navigation" aria-label="Navegação da mesa de trabalho">
+    
+    <button id="dockMobileToggle" class="dock-mobile-toggle" type="button" aria-label="Menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <path d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <span class="dock-mobile-text" data-l="pt">menu das janelas</span>
+      <span class="dock-mobile-text" data-l="en">windows menu</span>
     </button>
 
-    <div class="dock-divider" aria-hidden="true"></div>
+    <div class="dock-items">
+      <button class="dock-btn" data-window="home" type="button">
+        <span class="dock-dot" aria-hidden="true"></span>home
+      </button>
+      <button class="dock-btn" data-window="trajetoria" type="button">
+        <span class="dock-dot" aria-hidden="true"></span>
+        <span data-l="pt">trajetória</span>
+        <span data-l="en">experience</span>
+      </button>
+      <button class="dock-btn" data-window="sobre" type="button">
+        <span class="dock-dot" aria-hidden="true"></span>
+        <span data-l="pt">sobre</span>
+        <span data-l="en">about</span>
+      </button>
+      <button class="dock-btn" data-window="agora" type="button">
+        <span class="dock-dot" aria-hidden="true"></span>
+        <span data-l="pt">no que estou</span>
+        <span data-l="en">what i'm on</span>
+      </button>
+      <button class="dock-btn" data-window="links" type="button">
+        <span class="dock-dot" aria-hidden="true"></span>links
+      </button>
+      <button class="dock-btn" data-window="estante" type="button">
+        <span class="dock-dot" aria-hidden="true"></span>
+        <span data-l="pt">estante</span>
+        <span data-l="en">shelf</span>
+      </button>
+      <button class="dock-btn" data-window="faq" type="button">
+        <span class="dock-dot" aria-hidden="true"></span>faq
+      </button>
+      <button class="dock-btn" data-window="contato" type="button">
+        <span class="dock-dot" aria-hidden="true"></span>
+        <span data-l="pt">contato</span>
+        <span data-l="en">contact</span>
+      </button>
 
-    <button id="tidyBtn" class="dock-tidy-btn" type="button" title="Organizar janelas em colunas">
-      <span data-l="pt">arrumar a mesa</span>
-      <span data-l="en">tidy up</span>
-    </button>
+      <div class="dock-divider" aria-hidden="true"></div>
+
+      <button id="tidyBtn" class="dock-tidy-btn" type="button" title="Organizar janelas em colunas">
+        <span data-l="pt">arrumar a mesa</span>
+        <span data-l="en">tidy up</span>
+      </button>
+    </div>
   </nav>
 
   <!-- Toast Notification -->

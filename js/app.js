@@ -99,6 +99,12 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const winId = btn.getAttribute('data-window');
       toggleWindow(winId);
+      
+      // Close mobile menu if expanded
+      const dock = document.getElementById('dock');
+      if (dock && dock.classList.contains('expanded')) {
+        dock.classList.remove('expanded');
+      }
     });
   });
 
@@ -106,6 +112,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (tidyBtn) {
     tidyBtn.addEventListener('click', () => {
       tidyDesk();
+    });
+  }
+
+  // Mobile Dock Toggle
+  const dockMobileToggle = document.getElementById('dockMobileToggle');
+  const dock = document.getElementById('dock');
+  if (dockMobileToggle && dock) {
+    dockMobileToggle.addEventListener('click', () => {
+      dock.classList.toggle('expanded');
     });
   }
 
