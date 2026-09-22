@@ -112,6 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Window Drag Handlers
   function startDrag(id, e) {
     if (e.button !== 0) return; // Left click only
+    if (window.innerWidth < 820) return; // Desabilita drag em telas pequenas (mobile)
+    
     focusWindow(id);
     const win = windows[id];
     dragging = {
