@@ -2,7 +2,7 @@
 
 > **Mesa digital e website pessoal de Alysia Germani**  
 > Estudante de Ciência da Computação (Unisinos) · Ex-Bolsista de Iniciação Científica CNPq em Inteligência Artificial  
-> Foco: **Primeiro Estágio em Tecnologia** na Grande Porto Alegre
+> Foco: **Primeiro Estágio em Tecnologia da Informação** na Grande Porto Alegre e em qualquer lugar do mundo
 
 ---
 
@@ -102,3 +102,5 @@ Este repositório utiliza rigorosamente o padrão **Conventional Commits**:
 - **E-mail:** [oi@alys.cafe](mailto:oi@alys.cafe)
 - **LinkedIn:** [linkedin.com/in/alys-muni](https://linkedin.com/in/alys-muni)
 - **GitHub:** [github.com/alyscafe](https://github.com/alyscafe)
+- **Lattes:** [lattes.cnpq.br/5102566330101906](http://lattes.cnpq.br/5102566330101906)
+- **ORCID:** [orcid.org/0009-0005-5597-1001](https://orcid.org/0009-0005-5597-1001)
