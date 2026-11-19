@@ -5,7 +5,7 @@
  * - Dynamic z-index layering and focus management
  * - Responsive masonry-style window auto-layout ("arrumar a mesa")
  * - Theme switcher (Dia / Café) with localStorage persistence
- * - Bilingual support (PT / EN) with localStorage persistence
+ * - Bilingual support (PT / EN): browser-language detection + manual switch (see js/lang.js)
  * - Coffee cup click counter with animated steam and toast feedback
  * - Real-time clock
  */
@@ -560,9 +560,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Language Management (pt / en)
-  function setLanguage(lang) {
-    document.documentElement.setAttribute('data-lang', lang);
-    localStorage.setItem('alyscafe_lang', lang);
+  // Initial language is detected in js/lang.js (URL ?lang= > saved choice > browser language)
+  function setLanguage(lang, persist = false) {
+    if (window.alysLang) {
+      window.alysLang.apply(lang);
+      if (persist) window.alysLang.save(lang);
+    } else {
+      document.documentElement.setAttribute('data-lang', lang);
+    }
 
     if (btnLangPt && btnLangEn) {
       if (lang === 'en') {
@@ -581,14 +586,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const savedLang = localStorage.getItem('alyscafe_lang') || 'pt';
-  setLanguage(savedLang);
+  const initialLang = (window.alysLang && window.alysLang.initial) || 'pt';
+  setLanguage(initialLang);
 
   if (btnLangPt) {
-    btnLangPt.addEventListener('click', () => setLanguage('pt'));
+    btnLangPt.addEventListener('click', () => setLanguage('pt', true));
   }
   if (btnLangEn) {
-    btnLangEn.addEventListener('click', () => setLanguage('en'));
+    btnLangEn.addEventListener('click', () => setLanguage('en', true));
   }
 
   // Coffee Cup Counter & Toast

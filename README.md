@@ -38,12 +38,13 @@ Este projeto segue a tese de que **o site é portfólio duas vezes**: pelo conte
   - Tablet (820px – 1320px): 2 colunas
   - Desktop (> 1320px): 3 colunas harmoniosas
 
-### 4. Suporte Bilíngue Nativo (PT / EN)
-- Alternância instantânea de idioma com seletores declarativos em CSS (`[data-lang="pt"]` e `[data-lang="en"]`), sem recarregar a página e com persistência no `localStorage`.
+### 4. Suporte Bilíngue Nativo (PT / EN) & Detecção Automática
+- Detecção automática do idioma do navegador (`js/lang.js` no `<head>`, antes da pintura inicial): navegadores em português abrem em `PT`; qualquer outro idioma abre em `EN`.
+- Alternância instantânea de idioma com seletores declarativos em CSS (`[data-lang="pt"]` e `[data-lang="en"]`), persistência da escolha explícita no `localStorage` e propagação do idioma via `?lang=pt|en` para a página de currículo (`/curriculo`).
 
-### 5. Currículo Otimizado para ATS e Recrutadores
-- Arquivo `curriculo.pdf` servido em URL fixa na raiz (`/curriculo.pdf`), gerado a partir de estrutura em uma coluna estritamente compatível com parsers de ATS (Gupy, Kenoby, Greenhouse, Workday) e com o tempo de varredura rápida de recrutadores.
-- Versão de visualização e impressão em `curriculo.html`.
+### 5. Currículo Otimizado para ATS, IAs de Triagem e Recrutadores
+- Página interativa em `curriculo.html` (`/curriculo`) e arquivos PDF compilados em **1 página A4** e **fluxo linear de 1 coluna** (`curriculo.pdf` em português e `resume-en.pdf` em inglês).
+- Estrutura sem colunas paralelas nas seções de conteúdo, garantindo que parsers de ATS e IAs de triagem (Gupy, Kenoby, Workday, Greenhouse) extraiam 100% dos campos na ordem exata, sem misturar linhas.
 
 ---
 
@@ -53,11 +54,13 @@ Este projeto segue a tese de que **o site é portfólio duas vezes**: pelo conte
 alyscafe-website/
 ├── index.html        # Página principal com a mesa de trabalho e todas as janelas
 ├── curriculo.html    # Currículo ATS estruturado em 1 coluna (HTML para visualização/impressão)
-├── curriculo.pdf     # Currículo ATS compilado pronto para download direto
+├── curriculo.pdf     # Currículo ATS compilado em Português (1 página, texto 100% extraível)
+├── resume-en.pdf     # Currículo ATS compilado em Inglês (1 página, texto 100% extraível)
 ├── favicon.svg       # Favicon vetorial com a coelhinha e a xícara de café
 ├── css/
 │   └── style.css     # Design tokens, temas dia/cafe, layout, dock e animações
 ├── js/
+│   ├── lang.js       # Detecção de idioma do navegador, persistência e sincronização de links
 │   └── app.js        # Gerenciador de janelas, temas, idiomas, relógio e toasts
 ├── .gitignore        # Exclusão de notas pessoais (Contexto/) e temporários
 └── README.md         # Documentação e decisões do projeto

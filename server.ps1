@@ -1,4 +1,4 @@
-param(
+﻿param(
     [int]$Port = 3000,
     [string]$Root = $PSScriptRoot
 )
@@ -47,6 +47,10 @@ try {
             }
 
             $filePath = [System.IO.Path]::GetFullPath([System.IO.Path]::Combine($rootFullPath, $rawPath))
+            # Extensionless URLs (e.g. /curriculo -> curriculo.html), mirroring GitHub Pages
+            if (-not (Test-Path -Path $filePath -PathType Leaf) -and (Test-Path -Path "$filePath.html" -PathType Leaf)) {
+                $filePath = "$filePath.html"
+            }
             if (-not $filePath.StartsWith($rootFullPath, [System.StringComparison]::OrdinalIgnoreCase)) {
                 $response.StatusCode = 403
             } elseif (Test-Path -Path $filePath -PathType Leaf) {
